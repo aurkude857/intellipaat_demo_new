@@ -1,0 +1,30 @@
+pipeline {
+	agent {label 'maven_server'}
+	stages {
+		stage ("Clone the maven project repository") {
+			steps {
+				git branch: 'develop', url: 'https://github.com/Dgruploads/intellipaat_demo_new.git'
+			}
+		}
+		stage ("1. This stage will build the war package") {
+			steps {
+				sh "mvn clean"
+			}
+		}
+		stage ("Build the maven package") {
+			steps {
+				sh "mvn install"
+			}
+		}
+		stage ("Copy the package to S3 bucket") {
+			steps {
+				sh "aws s3 cp /home/ubuntu/maven_server/workspace/maven_package_pipeline/target/hello-world-web-app.war s3://dgruploads-maven-package"
+			}
+		}
+		stage ("Trigger deploy pipeline job") {
+		    steps {
+		        build 'maven_deploy_pipeline'
+		    }
+		}
+	}
+}
