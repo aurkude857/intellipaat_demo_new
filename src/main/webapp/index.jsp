@@ -6,5 +6,6 @@
 <h1>This is a build automation example</h1>
 <h1>This will trigger the jenkins job</h1>
 <h1>This is a pipeline example</h1>
+<h1>trigger pipeline</h1>
 </body>
 </html>
