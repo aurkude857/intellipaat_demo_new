@@ -18,7 +18,7 @@ pipeline {
 		}
 		stage ("Copy the package to S3 bucket") {
 			steps {
-				sh "aws s3 cp /home/ubuntu/maven_server/workspace/maven_package_pipeline/target/hello-world-web-app.war s3://dgruploads-maven-package"
+				sh "aws s3 cp /home/ubuntu/maven_server/workspace/maven_package_pipeline/target/hello-world-web-app.war s3://aurkude857-maven-package"
 			}
 		}
 		stage ("Trigger deploy pipeline job") {
