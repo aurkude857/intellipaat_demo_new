@@ -3,7 +3,7 @@ pipeline {
 	stages {
 		stage ("Clone the maven project repository") {
 			steps {
-				git branch: 'develop', url: 'https://github.com/Dgruploads/intellipaat_demo_new.git'
+				git branch: 'develop', url: 'https://github.com/aurkude857/intellipaat_demo_new.git'
 			}
 		}
 		stage ("1. This stage will build the war package") {
